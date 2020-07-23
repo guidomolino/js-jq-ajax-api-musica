@@ -16,23 +16,26 @@ function elencoDischi() {
     success: function(data, state){
       var success = data["success"];
       var lista = data["response"];
-      console.log(value);
+      console.log(lista);
       if (success) {
-        stampaDischi();
+        stampaDischi(lista);
       }
+    },
+    error: function (error) {
+      console.log("error",error);
     }
   });
 
 }
 
-function stampaDischi(disc) {
+function stampaDischi(lista) {
 
   var template = $("#disc-template").html();
   var compiled = Handlebars.compile(template);
   var target = $("#disc-template");
 
-  for (var i = 0; i < disc.length; i++) {
-    var disco= disc[i];
+  for (var i = 0; i < lista.length; i++) {
+    var disco= lista[i];
     var discHTML = compiled(disco);
     target.append(discHTML);
   }
@@ -41,7 +44,6 @@ function stampaDischi(disc) {
 
 function init() {
   elencoDischi();
-  stampaDischi();
 }
 
 $(document).ready(init);
