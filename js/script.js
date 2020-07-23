@@ -32,7 +32,7 @@ function stampaDischi(lista) {
 
   var template = $("#disc-template").html();
   var compiled = Handlebars.compile(template);
-  var target = $("#disc-template");
+  var target = $("#disc-container");
 
   for (var i = 0; i < lista.length; i++) {
     var disco= lista[i];
