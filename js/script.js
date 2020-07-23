@@ -33,17 +33,9 @@ function stampaDischi(disc) {
 
   for (var i = 0; i < disc.length; i++) {
     var disco= disc[i];
-    var cont = {
-      poster: disc["poster"],
-      title: disc["title"],
-      year: disc["year"],
-      author: disc["author"]
-    }
+    var discHTML = compiled(disco);
+    target.append(discHTML);
   }
-
-  var disco = compiled(cont);
-  target.append(disco);
-
 }
 
 
